@@ -6,5 +6,7 @@ module.exports = async (req, res) => {
         completed: req.body.completed,
     });
     const item = await db.getItem(req.params.id);
+    console.log(`PUT request. Updated item ${req.params.id}`);
+    console.log(item);
     res.send(item);
 };

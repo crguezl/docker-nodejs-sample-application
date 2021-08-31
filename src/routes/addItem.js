@@ -8,6 +8,9 @@ module.exports = async (req, res) => {
         completed: false,
     };
 
+    console.log(`addItem. POST request`);
+    // console.log(req.body);
+    console.log(item);
     await db.storeItem(item);
     res.send(item);
 };

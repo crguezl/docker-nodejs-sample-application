@@ -31,7 +31,7 @@ test('it can update an existing item', async () => {
     await db.init();
 
     const initialItems = await db.getItems();
-    expect(initialItems.length).toBe(0);
+    expect(initialItems.length).toBe(1);
 
     await db.storeItem(ITEM);
 
@@ -41,7 +41,7 @@ test('it can update an existing item', async () => {
     );
 
     const items = await db.getItems();
-    expect(items.length).toBe(1);
+    expect(items.length).toBe(2);
     expect(items[0].completed).toBe(!ITEM.completed);
 });
 

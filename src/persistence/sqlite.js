@@ -42,8 +42,8 @@ async function getItems() {
         db.all('SELECT * FROM todo_items', (err, rows) => {
             if (err) return rej(err);
             res(
-                rows.map(item =>
-                    Object.assign({}, item, {
+                rows.map(item => // https://stackoverflow.com/questions/843780/store-boolean-value-in-sqlite
+                    Object.assign({}, item, { //SQLite does not have a separate Boolean storage class. Instead, Boolean values are stored as integers 0 (false) and 1 (true).
                         completed: item.completed === 1,
                     }),
                 ),

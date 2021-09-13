@@ -13,6 +13,7 @@ function App() {
     );
 }
 
+// A component
 function TodoListCard() {
     /*
     useState allow us to add state to a functional component.
@@ -128,7 +129,8 @@ function AddItemForm({ onNewItem }) {
     );
 }
 
-function ItemDisplay({ item, onItemUpdate, onItemRemoval }) {
+// A component
+function ItemDisplay({ item, onItemUpdate, onItemRemoval } /* Props */) {
     const { Container, Row, Col, Button } = ReactBootstrap;
 
     const toggleCompletion = () => {

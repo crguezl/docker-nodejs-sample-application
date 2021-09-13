@@ -71,10 +71,10 @@ async function storeItem(item) {
     return new Promise((res, rej) => {
         db.run(
             'INSERT INTO todo_items (id, name, completed) VALUES (?, ?, ?)',
-            [item.id, item.name, item.completed ? 1 : 0],
+            [item.id, item.name, item.completed ? 1 : 0], 
             err => {
                 if (err) return rej(err);
-                res();
+                res(item);
             },
         );
     });

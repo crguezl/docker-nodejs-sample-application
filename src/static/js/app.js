@@ -1,9 +1,11 @@
 function App() {
     const { Container, Row, Col } = ReactBootstrap;
+    // See https://react-bootstrap.github.io/layout/grid/
+    // For offsetting grid columns you can set an offset value 
     return (
         <Container>
             <Row>
-                <Col md={{ offset: 3, span: 6 }}>
+                <Col md={{ offset: 3, span: 6 }}> 
                     <TodoListCard />
                 </Col>
             </Row>
@@ -39,6 +41,10 @@ function TodoListCard() {
         [items],
     );
 
+    /*
+     React.useCallback resolves the problem of function equality check.
+     See https://dmitripavlutin.com/dont-overuse-react-usecallback/
+    */
     const onItemRemoval = React.useCallback(
         item => {
             const index = items.findIndex(i => i.id === item.id);
@@ -49,8 +55,10 @@ function TodoListCard() {
 
     if (items === null) return 'Loading...';
 
+    // Fragments are a modern syntax for adding multiple elements to a React Component without wrapping them in an extra DOM node.
+    // React Fragments enable you to group multiple sibling components without introducing any unnecessary markup in the rendered HTML
     return (
-        <React.Fragment>
+        <React.Fragment> 
             <AddItemForm onNewItem={onNewItem} />
             {items.length === 0 && (
                 <p className="text-center">You have no todo items yet! Add one above!</p>

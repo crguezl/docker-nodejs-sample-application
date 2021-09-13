@@ -14,6 +14,12 @@ function App() {
 }
 
 function TodoListCard() {
+    /*
+    useState allow us to add state to a functional component.
+    The state is a JS object that stores the component dynamic data.
+    Because state is dynamic (it is persistent in time) it allows the component
+    to keep track of the changing information in between renders
+    */
     const [items, setItems] = React.useState(null);
 
     React.useEffect(() => {
